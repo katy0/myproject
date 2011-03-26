@@ -5,6 +5,13 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^polls/$', 'polls.views.index'),
+    (r'^polls/(\d+)/$', 'polls.views.detail'),
+    (r'^polls/(\d+)/results/$', 'polls.views.results'),
+    (r'^polls/(\d+)/vote/$', 'polls.views.vote'),
+    (r'^$', 'polls.views.redirect_to_polls'),
+    (r'^polls/$', 'polls.views.index'),
+
     # Examples:
     # url(r'^$', 'myproject.views.home', name='home'),
     # url(r'^myproject/', include('myproject.foo.urls')),
@@ -15,3 +22,4 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 )
+
